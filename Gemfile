@@ -29,8 +29,11 @@ group 'development' do
 end
 
 # Test requirements
-gem 'rspec', group: 'test'
-gem 'rack-test', require: 'rack/test', group: 'test'
+group 'test' do
+  gem 'rspec'
+  gem 'rack-test', require: 'rack/test'
+  gem 'capybara'
+end
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.3'
