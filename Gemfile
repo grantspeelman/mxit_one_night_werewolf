@@ -24,8 +24,16 @@ gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
 
+group 'production' do
+  gem 'puma', require: false
+end
+
 group 'development' do
-  gem 'rubocop'
+  gem 'rubocop', require: false
+  gem 'capistrano', '~> 3.1', require: false
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', '~> 2.0'
 end
 
 # Test requirements
