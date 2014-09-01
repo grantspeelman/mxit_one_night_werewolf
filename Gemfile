@@ -24,6 +24,9 @@ gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
 
+# third party
+gem 'staccato'
+
 group 'production' do
   gem 'puma', require: false
 end

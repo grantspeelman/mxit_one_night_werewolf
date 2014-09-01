@@ -62,5 +62,28 @@ module MxitOneNightWerewolf
     #     render 'errors/500'
     #   end
     #
+    after do
+      if status != 302
+        begin
+          Timeout::timeout(15) do
+            tracker = Staccato.tracker(ENV['GA_TRACKING_CODE'],request.env['HTTP_X_MXIT_USERID_R'])
+            hit = Staccato::Pageview.new(tracker,
+                                         path: request.fullpath,
+                                         hostname: request.host,
+             #                            user_id: current_user.id,
+                                         user_ip: request.env['HTTP_X_FORWARDED_FOR'],
+                                         user_agent: "#{request.env['HTTP_USER_AGENT']} #{request.env['HTTP_X_DEVICE_USER_AGENT']}")
+            #hit.add_custom_dimension(1,current_user_request_info.gender || 'unknown')
+            #hit.add_custom_metric(2,current_user_request_info.age || 'unknown')
+            hit.track!
+          end
+        rescue Timeout::Error => te
+          logger.warn(te.message)
+        rescue => e
+          logger.error(e.message)
+          raise e unless Padrino.env == :production
+        end
+      end
+    end
   end
 end
