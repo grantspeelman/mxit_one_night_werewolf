@@ -17,10 +17,10 @@ gem 'dm-core'
 
 # third party
 gem 'staccato'
-gem 'airbrake'
 
 group 'production' do
   gem 'puma', require: false
+  gem 'airbrake', '~> 3.1', require: false
 end
 
 group 'development' do

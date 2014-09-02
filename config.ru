@@ -6,4 +6,14 @@
 
 require File.expand_path('../config/boot.rb', __FILE__)
 
+if Padrino.env == :production
+  require 'airbrake'
+
+  Airbrake.configure do |config|
+    config.api_key = ENV['AIRBRAKE_API_KEY']
+    config.host = ENV['AIRBRAKE_HOST'] if ENV['AIRBRAKE_HOST']
+  end
+
+  use Airbrake::Rack
+end
 run Padrino.application
