@@ -5,6 +5,15 @@ module MxitOneNightWerewolf
     register Padrino::Helpers
 
     enable :sessions
+    configure :production do
+      require 'airbrake'
+
+      Airbrake.configure do |config|
+        config.api_key = ENV['AIRBRAKE_API_KEY']
+      end
+
+      use Airbrake::Rack
+    end
 
     ##
     # Caching support.

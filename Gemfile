@@ -17,6 +17,7 @@ gem 'dm-core'
 
 # third party
 gem 'staccato'
+gem 'airbrake'
 
 group 'production' do
   gem 'puma', require: false

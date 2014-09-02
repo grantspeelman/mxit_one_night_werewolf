@@ -8,24 +8,28 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    airbrake (4.0.0)
+      builder
+      multi_json
     ast (2.0.0)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    builder (3.2.2)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
-    capistrano-bundler (1.1.2)
-      capistrano (~> 3.0)
+    capistrano-bundler (1.1.3)
+      capistrano (~> 3.1)
       sshkit (~> 1.2)
     capistrano-rbenv (2.0.2)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    capistrano3-puma (0.6.1)
+    capistrano3-puma (0.7.0)
       capistrano (~> 3.0)
       puma (>= 2.6)
-    capybara (2.2.0)
+    capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -78,7 +82,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.0)
-    minitest (5.4.0)
+    minitest (5.4.1)
     moneta (0.7.20)
     multi_json (1.10.1)
     net-scp (1.2.1)
@@ -181,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   capistrano (~> 3.1)
   capistrano-bundler
   capistrano-rbenv (~> 2.0)
