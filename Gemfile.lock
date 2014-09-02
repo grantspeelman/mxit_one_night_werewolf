@@ -63,6 +63,9 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.14)
       data_objects (= 0.10.14)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     erubis (2.7.0)
     fastercsv (1.5.5)
     http_router (0.11.1)
@@ -191,6 +194,7 @@ DEPENDENCIES
   dm-timestamps
   dm-types
   dm-validations
+  dotenv
   erubis (~> 2.7.0)
   padrino (= 0.12.3)
   puma
