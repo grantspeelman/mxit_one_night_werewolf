@@ -21,6 +21,7 @@ gem 'staccato'
 group 'production' do
   gem 'puma', require: false
   gem 'airbrake', '~> 3.1', require: false
+  gem 'newrelic_rpm'
 end
 
 group 'development' do
